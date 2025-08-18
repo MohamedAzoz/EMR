@@ -1,0 +1,19 @@
+
+لازم تكون داخل ==> \Backend Code(اسم ال folder)\EMR(اسم المشوع ال Solution)
+
+من خلال ==> cd .\Backend Code
+من خلال ==> cd .\EMR
+
+coverlet '.\EMR.Test\bin\Debug\net8.0\EMR.Test.dll' -t 'dotnet' -a 'test --no-build' --exclude-by-file .\اسم الملف عايز تثتثنيه من البحث في داخله
+
+الاوامر السابقه تعرض لك نسبة التى قمت بتغطيتها من خلال ال Testing
+================================================
+ الامر التالى هيحولك البيانات التى تظهر ال XML File
+dotnet test --collect:"XPlat Code Coverage" 
+================================================
+لازم تعمل الخطوات التاليه لعرض النتائج السابقة فى صفحة HTML بدلا من XML
+dotnet tool install -g dotnet-reportgenerator-globaltool
+
+من خلال ==> cd .\EMR.Test
+
+reportgenerator -reports:".\TestResults\ae3b3549-538c-474a-b364-da8a8bdd924d(اسم الملف)\coverage.cobertura.xml" -targetdir:"CodeTesting(اسم لل folder)" -reporttypes:HTML
